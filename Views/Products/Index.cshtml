@@ -9,27 +9,41 @@
 <p>
     <a asp-action="Create" class="btn btn-primary" title="Login erforderlich" id="btnAlignment">Neuer Eintrag </a>
 </p>
-<table class="table" id="tableDesign">
-    
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
+<div id="tableDesign">
+
+
+    @foreach (var item in Model)
+    {
+        <a asp-action="Details" asp-route-id="@item.Id" class="row-link">
+            <div class="row">
+
+
+
+                <div class="cell">
+
                     @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
+
+                </div>
+                <div class="cell">
+
                     @($"{item.Price:C}")
-                </td>
 
-                <td>
+                </div>
 
-                    <a asp-action="Details" asp-route-id="@item.Id">
+                <div class="cell">
 
-                        <img src="/assets/images/placeholder01.JPEG" alt="product-image" class="product-image" title="Klicken für Details"/>
-                    </a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+                    <div>
+
+                        <img src="/assets/images/placeholder01.JPEG" alt="product-image" class="product-image"
+                            title="Klicken für Details" />
+
+                    </div>
+
+                </div>
+
+            </div>
+        </a>
+    }
+
+</div>
